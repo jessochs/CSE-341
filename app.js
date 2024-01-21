@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const mongodb = require('./db/connect');
-const contactRoutes = require('./routes/contacts');
+// const contactRoutes = require('./routes/contacts');
 const app = express();
 
 
