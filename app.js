@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const mongodb = require('./db/connect');
-const contactRoutes = require('./routes/contact');
+const contactRoutes = require('./routes/contacts');
 const app = express();
 
 
@@ -20,7 +20,7 @@ app
     if (err) {
       console.log(err);
     }else {
-      app/addListener(port);
+      app.listen(port);
       console.log(`Connected to DB and listening on ${port}`);
     }
   });
