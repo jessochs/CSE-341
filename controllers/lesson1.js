@@ -1,7 +1,8 @@
-const loganRoute = (req, res) => {
-    res.send("Logan Ochs");
-  };
+// const loganRoute = (req, res) => {
+//     res.send("Logan Ochs");
+//   };
 
-module.exports  = {
-    loganRoute
-};
+// module.exports  = {
+//     loganRoute
+// };
+

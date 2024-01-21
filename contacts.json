@@ -1,0 +1,23 @@
+{
+    "contact": {
+        "firstName": "Logan",
+        "lastName": "Ochs",
+        "email": "ochslogan@gmail.com",
+        "favoriteColor" : "green",
+        "birthday": "March 31, 1998"
+    },
+    "contact2": {
+        "firstName": "Holly",
+        "lastName": "Laudert",
+        "email": "hollylaudert@gmail.com",
+        "favoriteColor" : "pink",
+        "birthday": "January 14, 2001"
+    },
+    "contact3": {
+        "firstName": "Lexi",
+        "lastName": "Dennis",
+        "email": "lexid@hotmail.com",
+        "favoriteColor" : "green",
+        "birthday": "January 13, 1999"
+    }
+}
