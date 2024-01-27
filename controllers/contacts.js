@@ -1,7 +1,7 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
-const getAll = async (req, res, next) => {
+const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection('contacts').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-type', 'application/json');
@@ -9,43 +9,62 @@ const getAll = async (req, res, next) => {
   });
 };
 
-const getSingle = async (req, res, next) => {
-    const userId = new ObjectId(req.params.id);
-    const result = await mongodb
-        .getDb()
-        .db()
-        .collection('contacts')
-        .find({_id: userId});
-    result.toArray().then((lists) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(lists[0])
-    });
+const getSingle = async (req, res) => {
+  const userId = new ObjectId(req.params.id);
+  const result = await mongodb.getDb().db().collection('contacts').find({ _id: userId });
+  result.toArray().then((lists) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(lists[0]);
+  });
 };
 
-const getNew = async (req, res, next) => {
+const createContact = async (req, res) => {
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+  };
+  const response = await mongodb.getDb().db().collection('contacts').insertOne(contact);
+  if(response.acknowledged) {
+    res.status(201).json(response);
+  } else {
+    res.status(500).json(response.error || 'An error occurred trying to create the contact.');
+  }
+};
+  const updateContact = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const contact =  {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+    const response = await mongodb.getDb().db().collection('contacts').replaceOne({_id: userId, contact});
+    console.log(response);
+    if(response.modificationCount > 0){
+      res.status(204).send();
 
-  const newAddition = await db.collection('contacts').insertOne([
-    {
-      "_id" : "122335",
-      "firstName" : "David",
-      "lastName" : "Facer",
-      "email" : "facerdave@cei.edu",
-      "favoriteColor" : "blue",
-      "birthday" : "July 13, 1968"
+    } else {
+      res.status(500).json(response.error || 'An error occurred trying to update the contact.');
     }
-  ])
+    
+  
   res.status(204);
+};
+const toDelete = async (req, res) => {
+  const userId = new ObjectId(req.params.id);
+  const response = await mongodb.getDb().db().collection('contacts').remove({_id: userId}, true);
+  console.log(response);
+    if(response.deletedCount > 0){
+      res.status(200).send();
 
+    } else {
+      res.status(500).json(response.error || 'An error occurred trying to delete the contact.');
+    }
 }
-const toDelete = {"id" : "65ac81000ba1eeb77fb86341"};
-db.collection('contacts').deleteOne(toDelete, function(err, obj) {
-  if (err) 
-  throw err;
-
-  console.log("Contact has been deleted");
-  db.close();
-  res.status(200);
-});
 
 
-module.exports = { getAll, getSingle, getNew };
+module.exports = { getAll, getSingle, createContact, updateContact, toDelete };

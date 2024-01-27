@@ -7,3 +7,30 @@ GET http://localhost:8080/contacts/65ac80700ba1eeb77fb8633f
 GET http://localhost:8080/contacts/65ac80e70ba1eeb77fb86340
 ###
 GET http://localhost:8080/contacts/65ac81000ba1eeb77fb86341
+
+### CREATE
+POST http://localhost:8080/contacts HTTP/1.1
+Content-Type: application/json
+{
+    "firstName" : "David",
+    "lastName" : "Facer",
+    "email" : "facerdave@cei.edu",
+    "favoriteColor" : "blue",
+    "birthday" : "July 13, 1968"
+}
+
+### PUT
+PUT http://localhost:8080/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName" : "David",
+    "lastName" : "Facer",
+    "email" : "facerdave@cei.edu",
+    "favoriteColor" : "blue",
+    "birthday" : "July 13, 1968"
+}
+
+### DELETE
+
+
