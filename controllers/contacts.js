@@ -33,7 +33,7 @@ const createContact = async (req, res) => {
     res.status(500).json(response.error || 'An error occurred trying to create the contact.');
   }
 };
-  const updateContact = async (req, res) => {
+const updateContact = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     const contact =  {
       firstName: req.body.firstName,
@@ -44,7 +44,7 @@ const createContact = async (req, res) => {
     };
     const response = await mongodb.getDb().db().collection('contacts').replaceOne({_id: userId, contact});
     console.log(response);
-    if(response.modificationCount > 0){
+    if(response.modifiedCount > 0){
       res.status(204).send();
 
     } else {
@@ -52,7 +52,7 @@ const createContact = async (req, res) => {
     }
     
   
-  res.status(204);
+  
 };
 const toDelete = async (req, res) => {
   const userId = new ObjectId(req.params.id);
