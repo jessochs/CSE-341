@@ -1,7 +1,7 @@
-// const loganRoute = (req, res) => {
-//     res.send("Logan Ochs");
-//   };
+const loganRoute = (req, res) => {
+    res.send("Welcome Home");
+  };
 
-// module.exports  = {
-//     loganRoute
-// };
+module.exports  = {
+    loganRoute
+};
