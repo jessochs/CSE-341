@@ -7,7 +7,7 @@ const doc = {
   },
 //   host: 'localhost:8080',
   host: 'cse-341-winter24.onrender.com',
-  schemes: ['http'],
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
