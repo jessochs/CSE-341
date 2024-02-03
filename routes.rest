@@ -21,15 +21,15 @@ content-type: application/json
 }
 
 ### PUT
-PUT http://localhost:8080/contacts/65ac81000ba1eeb77fb86341 HTTP/1.1
+PUT http://localhost:8080/contacts/65ac80700ba1eeb77fb8633f HTTP/1.1
 content-type: application/json
 
 {
-    "firstName" : "Lexi",
-    "lastName" : "Dennis",
-    "email" : "ldennis@byui.edu",
-    "favoriteColor" : "green",
-    "birthday" : "January 13, 1999"
+    "firstName": "Logan",
+    "lastName": "Ochs",
+    "email": "ochslogan@gmail.com",
+    "favoriteColor": "green",
+    "birthday": "March 30, 1998"
 }
 
 ### DELETE
