@@ -51,15 +51,15 @@ content-type: application/json
 }
 
 ###
-PUT https://cse-341-winter24.onrender.com/contacts HTTP1.1
+PUT https://cse-341-winter24.onrender.com/contacts/65ac80700ba1eeb77fb8633f HTTP1.1
 content-type: application/json
 
 {
-    "firstName" : "Lexi",
-    "lastName" : "Dennis",
-    "email" : "ldennis@byui.edu",
-    "favoriteColor" : "green",
-    "birthday" : "January 13, 1999"
+   "firstName": "Logan",
+    "lastName": "Ochs",
+    "email": "ochslogan@gmail.com",
+    "favoriteColor": "green",
+    "birthday": "March 30, 1998"
 }
 
 ###
